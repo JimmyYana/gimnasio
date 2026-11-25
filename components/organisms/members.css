@@ -1,0 +1,9 @@
+.members { background: #242122; }
+.member-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 18px; padding: 6px 14px 20px; }
+.member-card { position: relative; background: var(--black); border: 1px solid var(--lime); border-radius: 12px; min-width: 0; padding: 4px 4px 6px; font-size: 12px; }
+.avatar { display: block; margin: 0 auto 5px; width: 50px; height: 50px; object-fit: cover; border-radius: 50%; }
+.avatar-fallback { display: grid; place-items: center; background: #302b2d; }
+.member-info p { margin: 3px 0; overflow-wrap: anywhere; }
+.member-info p:first-child { text-align: center; }
+.member-info span { color: var(--lime); }
+.member-info svg { vertical-align: middle; }
