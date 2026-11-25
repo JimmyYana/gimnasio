@@ -24,6 +24,7 @@ function MembersScreen({ selectedPlan }: { selectedPlan: string }) {
   const [planId, setPlanId] = useState(selectedPlan);
   const [schedule, setSchedule] = useState("");
   const [search, setSearch] = useState("");
+  const [deleting, setDeleting] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -44,6 +45,22 @@ function MembersScreen({ selectedPlan }: { selectedPlan: string }) {
       .finally(() => setLoading(false));
   }, []);
 
+  async function deleteMember(member: Member) {
+    if (deleting || !window.confirm(`Delete ${member.nombre}?`)) return;
+
+    setDeleting(true);
+    setError("");
+    try {
+      const response = await fetch(`${membersUrl}/${encodeURIComponent(member.id)}`, { method: "DELETE" });
+      if (!response.ok) throw new Error();
+      setMembers((current) => current.filter((item) => item.id !== member.id));
+    } catch {
+      setError("Could not delete the member.");
+    } finally {
+      setDeleting(false);
+    }
+  }
+
   const query = search.trim().toLowerCase();
   const schedules = [...new Set(members.map((member) => member.horario).filter(Boolean))].sort();
   const visibleMembers = members.filter((member) =>
@@ -54,6 +71,6 @@ function MembersScreen({ selectedPlan }: { selectedPlan: string }) {
   );
 
   return <MembersTemplate members={visibleMembers} loading={loading} error={error}
-    search={search} onSearch={setSearch} plansError={plansError}
+    deleting={deleting} onDelete={deleteMember} search={search} onSearch={setSearch} plansError={plansError}
     filters={{ status, planId, schedule, plans, schedules, onStatus: setStatus, onPlan: setPlanId, onSchedule: setSchedule }} />;
 }

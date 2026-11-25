@@ -4,12 +4,18 @@ import MemberActions from "../molecules/MemberActions";
 import type { Member } from "@/types/gimnasio";
 import "./members.css";
 
-export default function MemberCard({ member }: { member: Member }) {
+interface Props {
+  member: Member;
+  deleting: boolean;
+  onDelete: (member: Member) => void;
+}
+
+export default function MemberCard({ member, deleting, onDelete }: Props) {
   return (
     <article className="member-card">
       <Avatar key={member.foto} photo={member.foto} />
       <MemberInfo member={member} />
-      <MemberActions id={member.id} mobile={member.celular} />
+      <MemberActions id={member.id} mobile={member.celular} deleting={deleting} onDelete={() => onDelete(member)} />
     </article>
   );
 }
