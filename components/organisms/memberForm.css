@@ -16,3 +16,12 @@
 .joining-dates { display: grid; grid-template-columns: 1.65fr 1fr; gap: 6px; }
 .joining-dates input { font-size: 13px; }
 .save-button { justify-self: center; margin-top: 3px; padding: 1px 17px; border: 1px solid var(--lime); border-radius: 18px; background: var(--black); color: var(--lime); font-weight: 700; font-size: 19px; }
+.member-form input[name="foto"] { border: 1px solid var(--muted); border-radius: 10px; text-align: center; }
+.member-form input[name="foto"]::placeholder { color: var(--lime); font-size: 13px; }
+
+@media (max-width: 375px) {
+  .member-form { padding-inline: 10px; }
+  .form-field, .form-options, .measurement, .active-field { font-size: 16px; }
+  .form-field input, .form-field select { font-size: 15px; }
+  .joining-dates input, .measurement input { font-size: 12px; }
+}
