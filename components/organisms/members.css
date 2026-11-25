@@ -7,3 +7,5 @@
 .member-info p:first-child { text-align: center; }
 .member-info span { color: var(--lime); }
 .member-info svg { vertical-align: middle; }
+.member-filters { display: flex; gap: 5px; padding: 9px 12px 6px; }
+.member-filters select { flex: 1; min-width: 0; border: 1px solid var(--lime); border-radius: 11px; padding: 4px; background: var(--black); color: var(--lime); font-size: 14px; font-weight: bold; }
