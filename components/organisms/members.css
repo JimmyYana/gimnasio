@@ -9,3 +9,7 @@
 .member-info svg { vertical-align: middle; }
 .member-filters { display: flex; gap: 5px; padding: 9px 12px 6px; }
 .member-filters select { flex: 1; min-width: 0; border: 1px solid var(--lime); border-radius: 11px; padding: 4px; background: var(--black); color: var(--lime); font-size: 14px; font-weight: bold; }
+.member-actions { display: flex; justify-content: space-between; gap: 2px; margin-top: 5px; }
+.member-actions a, .member-actions button { display: grid; justify-items: center; gap: 2px; padding: 0; background: none; border: 0; color: var(--lime); white-space: nowrap; font-size: clamp(5px, 1.55vw, 6px); }
+.member-actions svg { color: var(--white); }
+.member-actions .edit-member { position: absolute; top: 3px; left: 3px; padding: 4px; }
