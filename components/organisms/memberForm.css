@@ -1,0 +1,27 @@
+.form-screen { background: var(--panel); }
+.member-form { padding: 10px 14px 14px; }
+.member-form fieldset { margin: 0; padding: 0; border: 0; min-inline-size: 0; }
+.form-content { display: grid; gap: 7px; }
+.form-field, .form-options, .measurement, .active-field { color: var(--lime); font-size: 19px; font-weight: 700; }
+.form-field { display: flex; gap: 8px; align-items: center; min-height: 37px; }
+.form-field input, .form-field select { flex: 1; min-width: 0; width: 100%; color: var(--white); background: transparent; border: 0; border-bottom: 1px dotted var(--muted); padding: 3px 1px; font-size: 17px; }
+.form-field option { background: var(--panel); }
+.form-options, .measurement { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 37px; }
+.member-form legend { float: left; margin: 0 8px 0 0; }
+.form-options label, .active-field { display: inline-flex; gap: 5px; align-items: center; }
+.member-form input:is([type="radio"], [type="checkbox"]) { accent-color: var(--lime); width: 17px; height: 17px; margin: 0; }
+.measurement > div { display: grid; flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 8px; min-width: 130px; }
+.measurement .form-field { font-weight: 400; font-size: 12px; min-height: 22px; }
+.measurement input { font-size: 13px; }
+.joining-dates { display: grid; grid-template-columns: 1.65fr 1fr; gap: 6px; }
+.joining-dates input { font-size: 13px; }
+.save-button { justify-self: center; margin-top: 3px; padding: 1px 17px; border: 1px solid var(--lime); border-radius: 18px; background: var(--black); color: var(--lime); font-weight: 700; font-size: 19px; }
+.member-form input[name="foto"] { border: 1px solid var(--muted); border-radius: 10px; text-align: center; }
+.member-form input[name="foto"]::placeholder { color: var(--lime); font-size: 13px; }
+
+@media (max-width: 375px) {
+  .member-form { padding-inline: 10px; }
+  .form-field, .form-options, .measurement, .active-field { font-size: 16px; }
+  .form-field input, .form-field select { font-size: 15px; }
+  .joining-dates input, .measurement input { font-size: 12px; }
+}

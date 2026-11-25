@@ -1,0 +1,25 @@
+.members { background: #211a1d; }
+.member-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 18px; padding: 6px 14px 20px; }
+.member-card { position: relative; background: var(--black); border: 1px solid var(--lime); border-radius: 12px; min-width: 0; padding: 4px 4px 6px; font-size: 12px; }
+.avatar { display: block; margin: 0 auto 5px; width: 50px; height: 50px; object-fit: cover; border-radius: 50%; }
+.avatar-fallback { display: grid; place-items: center; background: #302b2d; }
+.member-info p { margin: 3px 0; overflow-wrap: anywhere; }
+.member-info p:first-child { text-align: center; }
+.member-info span { color: var(--lime); }
+.member-info svg { vertical-align: middle; }
+.member-filters { display: flex; gap: 5px; padding: 9px 12px 6px; }
+.member-filters select { flex: 1; min-width: 0; border: 1px solid var(--lime); border-radius: 11px; padding: 4px; background: var(--black); color: var(--lime); font-size: 14px; font-weight: bold; }
+.member-actions { display: flex; justify-content: space-between; gap: 2px; margin-top: 5px; }
+.member-actions a, .member-actions button { display: grid; justify-items: center; gap: 2px; padding: 0; background: none; border: 0; color: var(--lime); white-space: nowrap; font-size: clamp(5px, 1.55vw, 6px); }
+.member-actions svg { color: var(--white); }
+.member-actions .edit-member { position: absolute; top: 3px; left: 3px; padding: 4px; }
+.member-actions .delete-member { position: absolute; top: 3px; right: 3px; padding: 4px; }
+.member-card { min-height: 170px; display: flex; flex-direction: column; }
+.member-actions { margin-top: auto; padding-top: 3px; }
+.member-filters select:nth-child(1), .member-filters select:nth-child(3) { flex: 1.2; }
+
+@media (max-width: 350px) {
+  .member-list { gap: 12px 10px; padding-inline: 9px; }
+  .member-filters { padding-inline: 8px; }
+  .member-filters select { font-size: 12px; }
+}

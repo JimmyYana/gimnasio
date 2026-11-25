@@ -1,0 +1,8 @@
+.header { position: relative; background: var(--lime); color: var(--black); text-align: center; padding: 6px 10px 9px; }
+.header-top { display: grid; place-items: center; min-height: 41px; }
+.header h1 { font-size: 21px; margin-top: 2px; }
+.header-menu { position: absolute; top: 12px; left: 10px; text-align: left; z-index: 3; }
+.header-menu summary { display: grid; place-items: center; cursor: pointer; width: 34px; height: 34px; color: var(--white); list-style: none; }
+.header-menu summary::-webkit-details-marker { display: none; }
+.header-menu a { display: block; padding: 10px; border-radius: 8px; background: var(--black); color: var(--lime); }
+.form-back { position: absolute; left: 11px; bottom: 2px; }

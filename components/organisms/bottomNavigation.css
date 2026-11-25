@@ -1,0 +1,5 @@
+.bottom-navigation { z-index: 2; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: min(100%, 390px); background: #342f30; display: grid; grid-template-columns: repeat(5, 1fr); padding: 8px 0 max(8px, env(safe-area-inset-bottom)); }
+.bottom-navigation a, .bottom-navigation button { display: grid; justify-items: center; align-content: center; gap: 2px; min-width: 0; background: transparent; border: 0; color: var(--white); font-size: 11px; padding: 0; text-align: center; }
+.bottom-navigation a { color: var(--lime); }
+.floating-add { z-index: 2; position: fixed; right: max(0px, calc((100% - 390px) / 2)); bottom: calc(68px + env(safe-area-inset-bottom)); width: 69px; height: 69px; border-radius: 50%; background: #ff0800; color: white; display: grid; place-items: center; }
+.members { padding-bottom: calc(140px + env(safe-area-inset-bottom)); }
