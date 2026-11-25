@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Referencias locales de diseño y esquemas
+/WhatsApp Image*.jpeg
+/captura_*.png
