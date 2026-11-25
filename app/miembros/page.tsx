@@ -8,6 +8,7 @@ const membersUrl = "https://6aff34e87fc363ccff08fc1b.mockapi.io/miembros";
 
 export default function MembersPage() {
   const [members, setMembers] = useState<Member[]>([]);
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -21,5 +22,11 @@ export default function MembersPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  return <MembersTemplate members={members} loading={loading} error={error} />;
+  const query = search.trim().toLowerCase();
+  const visibleMembers = members.filter((member) =>
+    member.nombre.toLowerCase().includes(query) || member.celular.toLowerCase().includes(query)
+  );
+
+  return <MembersTemplate members={visibleMembers} loading={loading} error={error}
+    search={search} onSearch={setSearch} />;
 }
