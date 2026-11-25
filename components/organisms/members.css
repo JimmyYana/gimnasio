@@ -1,4 +1,4 @@
-.members { background: #242122; }
+.members { background: #211a1d; }
 .member-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 18px; padding: 6px 14px 20px; }
 .member-card { position: relative; background: var(--black); border: 1px solid var(--lime); border-radius: 12px; min-width: 0; padding: 4px 4px 6px; font-size: 12px; }
 .avatar { display: block; margin: 0 auto 5px; width: 50px; height: 50px; object-fit: cover; border-radius: 50%; }
@@ -14,3 +14,12 @@
 .member-actions svg { color: var(--white); }
 .member-actions .edit-member { position: absolute; top: 3px; left: 3px; padding: 4px; }
 .member-actions .delete-member { position: absolute; top: 3px; right: 3px; padding: 4px; }
+.member-card { min-height: 170px; display: flex; flex-direction: column; }
+.member-actions { margin-top: auto; padding-top: 3px; }
+.member-filters select:nth-child(1), .member-filters select:nth-child(3) { flex: 1.2; }
+
+@media (max-width: 350px) {
+  .member-list { gap: 12px 10px; padding-inline: 9px; }
+  .member-filters { padding-inline: 8px; }
+  .member-filters select { font-size: 12px; }
+}

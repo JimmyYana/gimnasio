@@ -15,11 +15,22 @@ interface Props {
 }
 
 export default function MemberForm({ member, plans, defaultPlanId, saving, onSave }: Props) {
+  function dateInput(value = "") {
+    const isoDate = /^\d{4}-\d{2}-\d{2}/.test(value);
+    return { type: isoDate || !value ? "date" : "text", defaultValue: isoDate ? value.slice(0, 10) : value };
+  }
+
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const fields = new FormData(event.currentTarget);
     const text = (name: string) => String(fields.get(name) ?? "").trim();
     const number = (name: string) => Number(text(name));
+
+    function date(name: "fechaNacimiento" | "fechaIngreso" | "fechaFinalizacion") {
+      const stored = member?.[name];
+      const value = text(name);
+      return stored && value === dateInput(stored).defaultValue ? stored : value;
+    }
 
     onSave({
       nombre: text("nombre"),
@@ -31,13 +42,13 @@ export default function MemberForm({ member, plans, defaultPlanId, saving, onSav
       peso: number("peso"),
       pecho: number("pecho"),
       cintura: number("cintura"),
-      fechaNacimiento: text("fechaNacimiento"),
+      fechaNacimiento: date("fechaNacimiento"),
       direccion: text("direccion"),
       entrenamiento: text("entrenamiento"),
       planId: text("planId"),
       horario: text("horario"),
-      fechaIngreso: text("fechaIngreso"),
-      fechaFinalizacion: text("fechaFinalizacion"),
+      fechaIngreso: date("fechaIngreso"),
+      fechaFinalizacion: date("fechaFinalizacion"),
       montoPagado: number("montoPagado"),
       montoPendiente: number("montoPendiente"),
       metodoPago: text("metodoPago"),
@@ -75,7 +86,7 @@ export default function MemberForm({ member, plans, defaultPlanId, saving, onSav
             <FormField label="Waist" name="cintura" type="number" min="0" step="any" defaultValue={member?.cintura} />
           </div>
         </fieldset>
-        <FormField label="Date of Birth -:" name="fechaNacimiento" type={member ? "text" : "date"} defaultValue={member?.fechaNacimiento} required />
+        <FormField label="Date of Birth -:" name="fechaNacimiento" {...dateInput(member?.fechaNacimiento)} required />
         <FormField label="Address -:" name="direccion" defaultValue={member?.direccion} pattern=".*\S.*" required />
         <fieldset className="form-options">
           <legend>Training -:</legend>
@@ -94,8 +105,8 @@ export default function MemberForm({ member, plans, defaultPlanId, saving, onSav
         </label>
         <FormField label="Batch Time -:" name="horario" defaultValue={member?.horario} pattern=".*\S.*" required />
         <div className="joining-dates">
-          <FormField label="Joining Date -:" name="fechaIngreso" type={member ? "text" : "date"} defaultValue={member?.fechaIngreso} required />
-          <FormField label="To" name="fechaFinalizacion" type={member ? "text" : "date"} defaultValue={member?.fechaFinalizacion} required />
+          <FormField label="Joining Date -:" name="fechaIngreso" {...dateInput(member?.fechaIngreso)} required />
+          <FormField label="To" name="fechaFinalizacion" {...dateInput(member?.fechaFinalizacion)} required />
         </div>
         <FormField label="Paid Amount -:" name="montoPagado" type="number" min="0" step="any" defaultValue={member?.montoPagado} required />
         <FormField label="Due Amount -:" name="montoPendiente" type="number" min="0" step="any" defaultValue={member?.montoPendiente} required />
