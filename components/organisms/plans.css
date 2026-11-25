@@ -1,0 +1,13 @@
+.plans { padding: 15px 15px 16px; }
+.plans > .logo { margin: 0 auto 4px; }
+.plans h1, .trial, .plan-card h2, .plan-price { text-align: center; color: var(--lime); }
+.plans h1 { font-size: 24px; font-weight: 400; }
+.trial { margin-top: 10px; font-size: 16px; }
+.plan-list, .plan-card ul { list-style: none; padding: 0; }
+.plan-list { display: grid; gap: 28px; margin: 22px 0 0; }
+.plan-card { display: block; border: 1px solid var(--lime); border-radius: 22px; min-height: 178px; padding: 5px 12px 8px; }
+.plan-card h2 { font-size: 20px; text-transform: uppercase; }
+.plan-price { font-size: 15px; font-weight: bold; margin-top: 4px; }
+.plan-card ul { margin: 5px 0 0; font-size: 14px; line-height: 1.35; }
+.plan-card li { display: flex; align-items: baseline; gap: 10px; }
+.plan-card li span { font-size: 12px; }
