@@ -6,6 +6,8 @@ import type { Member } from "@/types/gimnasio";
 
 interface Props {
   members: Member[];
+  deleting: boolean;
+  onDelete: (member: Member) => void;
   filters: FilterProps;
   plansError: string;
   search: string;
@@ -14,7 +16,7 @@ interface Props {
   error: string;
 }
 
-export default function MembersTemplate({ members, loading, error, search, onSearch, filters, plansError }: Props) {
+export default function MembersTemplate({ members, loading, error, search, onSearch, filters, plansError, deleting, onDelete }: Props) {
   return (
     <main className="screen members">
       <Header><SearchBar search={search} onSearch={onSearch} /></Header>
@@ -23,7 +25,7 @@ export default function MembersTemplate({ members, loading, error, search, onSea
       {loading && <p className="status" role="status">Loading members…</p>}
       {error && <p className="status" role="alert">{error}</p>}
       {!loading && !error && members.length === 0 && <p className="status">No members found.</p>}
-      <MemberList members={members} />
+      <MemberList members={members} deleting={deleting} onDelete={onDelete} />
     </main>
   );
 }

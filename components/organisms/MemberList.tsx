@@ -1,6 +1,16 @@
 import MemberCard from "./MemberCard";
 import type { Member } from "@/types/gimnasio";
 
-export default function MemberList({ members }: { members: Member[] }) {
-  return <div className="member-list">{members.map((member) => <MemberCard key={member.id} member={member} />)}</div>;
+interface Props {
+  members: Member[];
+  deleting: boolean;
+  onDelete: (member: Member) => void;
+}
+
+export default function MemberList({ members, deleting, onDelete }: Props) {
+  return (
+    <div className="member-list">
+      {members.map((member) => <MemberCard key={member.id} member={member} deleting={deleting} onDelete={onDelete} />)}
+    </div>
+  );
 }
